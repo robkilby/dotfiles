@@ -2,13 +2,13 @@
 
 cd $HOME/Dropbox/dotfiles
 
-echo 'Fetching updates from master'
-git fetch origin && git rebase origin/master
-echo '                                                              [DONE]'
-
 echo 'Fetching updates from upstream'
 git remote add upstream git@github.com:thoughtbot/dotfiles.git
 git fetch upstream && git rebase upstream/master
+echo '                                                              [DONE]'
+
+echo 'Fetching updates from master'
+git fetch master && git rebase origin/master
 echo '                                                              [DONE]'
 
 echo 'Setting up symlinks'
