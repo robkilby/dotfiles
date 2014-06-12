@@ -4,3 +4,5 @@ if [ ! -e $HOME/.vim/bundle/vundle ]; then
   git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
 fi
 vim -u $HOME/.vimrc.bundles +BundleInstall +qa
+
+[ -f $HOME/connections.xml ] && echo 'Skipping connections.xml; file exists' || ln -s $HOME/dotfiles-local/.connections.xml $HOME/connections.xml
