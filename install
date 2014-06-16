@@ -1,7 +1,9 @@
 #!/bin/sh
 
+cd $HOME/Dropbox/dotfiles
+
 echo 'Fetching updates from master'
-git fetch master && git rebase origin/master
+git fetch origin && git rebase origin/master
 echo '                                                              [DONE]'
 
 echo 'Fetching updates from upstream'
@@ -10,7 +12,7 @@ git fetch upstream && git rebase upstream/master
 echo '                                                              [DONE]'
 
 echo 'Installing pre-requisites: zsh and rcm'
-brew bundle dotfiles/Brewfile
+brew bundle $HOME/Dropbox/dotfiles/Brewfile
 echo '                                                              [DONE]'
 
 echo 'Changing shell for current user to zsh'
@@ -20,8 +22,15 @@ echo '                                                              [DONE]'
 echo 'Setting up symlinks'
 ln -s $HOME/Dropbox/dotfiles $HOME/dotfiles
 ln -s $HOME/Dropbox/dotfiles-local $HOME/dotfiles-local
+ln -s $HOME/Dropbox/Sites $HOME/Sites
 echo '                                                              [DONE]'
+
+cd $HOME
 
 echo 'Installing dotfiles'
 rcup -d dotfiles -x README.md -x LICENSE -x Brewfile
+echo '                                                              [DONE]'
+
+echo 'Installing local dotfiles'
+rcup
 echo '                                                              [DONE]'
