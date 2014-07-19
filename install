@@ -11,14 +11,6 @@ git remote add upstream git@github.com:thoughtbot/dotfiles.git
 git fetch upstream && git rebase upstream/master
 echo '                                                              [DONE]'
 
-echo 'Installing pre-requisites: zsh and rcm'
-brew bundle $HOME/Dropbox/dotfiles/Brewfile
-echo '                                                              [DONE]'
-
-echo 'Changing shell for current user to zsh'
-chsh -s $(which zsh)
-echo '                                                              [DONE]'
-
 echo 'Setting up symlinks'
 ln -s $HOME/Dropbox/dotfiles $HOME/dotfiles
 ln -s $HOME/Dropbox/dotfiles-local $HOME/dotfiles-local
