@@ -14,15 +14,16 @@ Clone onto your Dropbox:
 
     git clone git://github.com/robkilby/dotfiles.git
 
-Install:
+Install the dotfiles:
 
-    Dropbox/dotfiles/setup
+    ./Dropbox/dotfiles/setup
 
-Update:
+Update
+------
 
 You can safely run `dotfiles/update` multiple times to update:
 
-    dotfiles/update
+    ./dotfiles/update
 
 Make your own customisations
 ----------------------------
@@ -34,6 +35,8 @@ detected and symlinked.
 * `~/Dropbox/dotfiles-local/aliases.local`
 * `~/Dropbox/dotfiles-local/gitconfig.local`
 * `~/Dropbox/dotfiles-local/gvimrc.local`
+* `~/Dropbox/dotfiles-local/psqlrc.local` (we supply a blank `.psqlrc.local` to prevent `psql` from
+  throwing an error, but you should overwrite the file with your own copy)
 * `~/Dropbox/dotfiles-local/tmux.conf.local`
 * `~/Dropbox/dotfiles-local/vimrc.local`
 * `~/Dropbox/dotfiles-local/vimrc.bundles.local`
