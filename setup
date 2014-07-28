@@ -1,0 +1,47 @@
+#!/bin/sh
+
+if [ ! -h ~/dotfiles ]; then
+  cd ~/Dropbox/dotfiles
+
+  echo 'Fetching updates from robkilby/master'
+  git fetch origin && git rebase origin/master
+  echo '                                                              [DONE]'
+
+  cd ~/
+
+  echo 'Setting up symlinks'
+  if [ -e ~/Dropbox/dotfiles ]; then
+    ln -s ~/Dropbox/dotfiles ~/dotfiles
+  else
+    echo 'Dotfiles not found in Dropbox. Bailing out.'
+    exit 1
+  fi
+
+  if [ -e ~/Dropbox/dotfiles-local ]; then
+    ln -s ~/Dropbox/dotfiles-local ~/dotfiles-local
+  else
+    echo 'Dotfiles local customisations not found in Dropbox. Skipping
+    (these can be added later with update).'
+  fi
+  echo '                                                              [DONE]'
+
+  if [ -e ~/Dropbox/dotfiles-local/connections.xml ]; then
+    ln -s ~/Dropbox/dotfiles-local/connections.xml ~/connections.xml
+  fi
+
+  # This will create symlinks for config files in your home directory. The `-x`
+  # options, which exclude the `README.md`, `LICENSE`, and `Brewfile` files, are
+  # needed during installation but can be skipped once the `.rcrc` configuration
+  # file is symlinked in.
+  echo 'Installing dotfiles'
+  rcup -d dotfiles -x README.md -x LICENSE -x Brewfile
+  echo '                                                              [DONE]'
+
+  if [ -h ~/dotfiles-local ]; then
+    echo 'Installing local dotfiles'
+    rcup
+    echo '                                                              [DONE]'
+  fi
+else
+  echo 'Dotfiles are already installed. Use update instead.'
+fi
