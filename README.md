@@ -1,59 +1,50 @@
-thoughtbot dotfiles
+dotfiles
 ===================
 
-Requirements
-------------
+Prerequisites
+-------------
 
-Set zsh as your login shell:
-
-    chsh -s $(which zsh)
+Install the [laptop script](https://github.com/robkilby/laptop) for your
+platform.
 
 Install
 -------
 
-Clone onto your laptop:
+Clone onto your Dropbox:
 
-    git clone git://github.com/thoughtbot/dotfiles.git
-
-(Or, [fork and keep your fork
-updated](http://robots.thoughtbot.com/keeping-a-github-fork-updated)).
-
-Install [rcm](https://github.com/thoughtbot/rcm):
-
-    brew bundle dotfiles/Brewfile
+    git clone git://github.com/robkilby/dotfiles.git
 
 Install:
 
-    rcup -d dotfiles -x README.md -x LICENSE -x Brewfile
+    Dropbox/dotfiles/setup
 
-This will create symlinks for config files in your home directory. The `-x`
-options, which exclude the `README.md`, `LICENSE`, and `Brewfile` files, are
-needed during installation but can be skipped once the `.rcrc` configuration
-file is symlinked in.
+Update:
 
-You can safely run `rcup` multiple times to update:
+You can safely run `dotfiles/update` multiple times to update:
 
-    rcup
+    dotfiles/update
 
-Make your own customizations
+Make your own customisations
 ----------------------------
 
-Put your customizations in dotfiles appended with `.local`:
+Put your customisations in dotfiles appended with `.local` and place in a
+dotfiles-local folder in your Dropbox. The next time you update, these will be
+detected and symlinked.
 
-* `~/.aliases.local`
-* `~/.gitconfig.local`
-* `~/.gvimrc.local`
-* `~/.tmux.conf.local`
-* `~/.vimrc.local`
-* `~/.vimrc.bundles.local`
-* `~/.zshrc.local`
+* `~/Dropbox/dotfiles-local/aliases.local`
+* `~/Dropbox/dotfiles-local/gitconfig.local`
+* `~/Dropbox/dotfiles-local/gvimrc.local`
+* `~/Dropbox/dotfiles-local/tmux.conf.local`
+* `~/Dropbox/dotfiles-local/vimrc.local`
+* `~/Dropbox/dotfiles-local/vimrc.bundles.local`
+* `~/Dropbox/dotfiles-local/zshrc.local`
 
-For example, your `~/.aliases.local` might look like this:
+For example, your `~/Dropbox/dotfiles-local/aliases.local` might look like this:
 
     # Productivity
     alias todo='$EDITOR ~/.todo'
 
-Your `~/.gitconfig.local` might look like this:
+Your `~/Dropbox/dotfiles-local/gitconfig.local` might look like this:
 
     [alias]
       l = log --pretty=colored
@@ -63,12 +54,12 @@ Your `~/.gitconfig.local` might look like this:
       name = Dan Croak
       email = dan@thoughtbot.com
 
-Your `~/.zshrc.local` might look like this:
+Your `~/Dropbox/dotfiles-local/zshrc.local` might look like this:
 
     # recommended by brew doctor
     export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
-Your `~/.vimrc.bundles.local` might look like this:
+Your `~/Dropbox/dotfiles-local/vimrc.bundles.local` might look like this:
 
     Plugin 'Lokaltog/vim-powerline'
     Plugin 'stephenmckinney/vim-solarized-powerline'
