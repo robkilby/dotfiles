@@ -33,10 +33,10 @@ if [ ! -h ~/dotfiles ]; then
   # Setting the `RCRC` environment variable tells `rcup` to use standard
   # configuration options:
 
-  # * Exclude the `README.md`, `LICENSE`, and `Brewfile` files, which are part of
-  #   the `dotfiles` repository but do not need to be symlinked in.
+  # * Exclude the `README.md` and `LICENSE` files, which are part of
+  # the `dotfiles` repository but do not need to be symlinked in.
   # * Give precedence to personal overrides which by default are placed in
-  #   `~/dotfiles-local`
+  # `~/dotfiles-local`
   echo 'Installing dotfiles'
   env RCRC=~/dotfiles/rcrc rcup
   echo '                                                              [DONE]'
