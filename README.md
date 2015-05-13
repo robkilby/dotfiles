@@ -60,6 +60,13 @@ Your `~/Dropbox/dotfiles-local/gitconfig.local` might look like this:
       name = Dan Croak
       email = dan@thoughtbot.com
 
+Your `~/Dropbox/dotfiles-local/.vimrc.local` might look like this:
+
+    " Color scheme
+    colorscheme github
+    highlight NonText guibg=#060606
+    highlight Folded  guibg=#0A0A0A guifg=#9090D0
+
 Your `~/Dropbox/dotfiles-local/zshenv.local` might look like this:
 
     # load pyenv if available
@@ -77,8 +84,8 @@ Your `~/Dropbox/dotfiles-local/zshrc.local` might look like this:
 
 Your `~/Dropbox/dotfiles-local/vimrc.bundles.local` might look like this:
 
-    Plugin 'Lokaltog/vim-powerline'
-    Plugin 'stephenmckinney/vim-solarized-powerline'
+    Plug 'Lokaltog/vim-powerline'
+    Plug 'stephenmckinney/vim-solarized-powerline'
 
 zsh Configurations
 ------------------
@@ -141,10 +148,9 @@ What's in it?
 * Use [Ag](https://github.com/ggreer/the_silver_searcher) instead of Grep when
   available.
 * Use [Exuberant Ctags](http://ctags.sourceforge.net/) for tab completion.
-* Use [GitHub color scheme](https://github.com/croaky/vim-colors-github).
 * Use [vim-mkdir](https://github.com/pbrisbin/vim-mkdir) for automatically
   creating non-existing directories before writing the buffer.
-* Use [Vundle](https://github.com/gmarik/Vundle.vim) to manage plugins.
+* Use [vim-plug](https://github.com/junegunn/vim-plug) to manage plugins.
 
 [tmux](http://robots.thoughtbot.com/a-tmux-crash-course)
 configuration:
@@ -182,18 +188,33 @@ Shell aliases and scripts:
 * `tat` to attach to tmux session named the same as the current directory.
 * `v` for `$VISUAL`.
 
-Credits
--------
+Thanks
+------
 
 Thank you, [contributors](https://github.com/thoughtbot/dotfiles/contributors)!
 Also, thank you to Corey Haines, Gary Bernhardt, and others for sharing your
 dotfiles and other shell scripts from which we derived inspiration for items
 in this project.
 
-![thoughtbot](http://thoughtbot.com/images/tm/logo.png)
+License
+-------
 
-Dotfiles is maintained by [thoughtbot, inc](http://thoughtbot.com/community)
+dotfiles is copyright © 2009-2015 thoughtbot. It is free software, and may be
+redistributed under the terms specified in the [`LICENSE`] file.
+
+[`LICENSE`]: /LICENSE
+
+About thoughtbot
+----------------
+
+![thoughtbot](https://thoughtbot.com/logo.png)
+
+dotfiles is maintained and funded by thoughtbot, inc.
 The names and logos for thoughtbot are trademarks of thoughtbot, inc.
 
-Dotfiles is © 2009-2014 thoughtbot, inc. It is free software and may be
-redistributed under the terms specified in the [LICENSE](LICENSE) file.
+We love open source software!
+See [our other projects][community].
+We are [available for hire][hire].
+
+[community]: https://thoughtbot.com/community?utm_source=github
+[hire]: https://thoughtbot.com/hire-us?utm_source=github
