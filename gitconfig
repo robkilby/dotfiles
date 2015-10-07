@@ -13,7 +13,6 @@
   st = status
 [core]
 	excludesfile = /Users/robkilby/.gitignore_global
-  autocrlf = input
 [merge]
   ff = only
 [commit]
