@@ -1,8 +1,14 @@
 dotfiles
-===================
+--------
 
 Prerequisites
 -------------
+![prompt](http://images.thoughtbot.com/thoughtbot-dotfiles-prompt.png)
+
+Requirements
+------------
+
+Set zsh as your login shell:
 
 Install the [laptop script](https://github.com/robkilby/laptop) for your
 platform.
@@ -24,6 +30,21 @@ Update
 You can safely run `dotfiles/update` multiple times to update:
 
     ./dotfiles/update
+
+You should run `rcup` after pulling a new version of the repository to symlink
+any new files in the repository.
+
+#### Note for OS X El Capitan Users
+
+OS X El Capitan (10.11) calls `path_helper` from `/etc/zprofile`, which gets
+sourced *after* `.zshenv`, and will reorder your path in such a way that
+installed software such as Ruby, rbenv, Homebrew, etc. may not work correctly.
+You can rename the file to prevent it from editing your environment path after
+changes made in `.zshenv`:
+
+```shell
+% sudo mv /etc/{zprofile,zshenv}
+```
 
 Make your own customisations
 ----------------------------
@@ -181,10 +202,9 @@ Shell aliases and scripts:
 * `b` for `bundle`.
 * `g` with no arguments is `git status` and with arguments acts like `git`.
 * `git-churn` to show churn for the files changed in the branch.
-* `m` for `rake db:migrate && rake db:rollback && rake db:migrate && rake db:test:prepare`.
+* `migrate` for `rake db:migrate && rake db:rollback && rake db:migrate`.
 * `mcd` to make a directory and change into it.
 * `replace foo bar **/*.rb` to find and replace within a given list of files.
-* `rk` for `rake`.
 * `tat` to attach to tmux session named the same as the current directory.
 * `v` for `$VISUAL`.
 
