@@ -1,6 +1,0 @@
-#!/bin/sh
-
-echo 'Before running this command, run the upstream command first!'
-echo 'Fetching updates from origin'
-git fetch origin && git rebase origin/master
-echo '                                                              [DONE]'

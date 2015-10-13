@@ -1,5 +1,0 @@
-#!/bin/sh
-
-echo 'Fetching updates from upstream'
-git fetch upstream && git rebase upstream/master
-echo '                                                              [DONE]'

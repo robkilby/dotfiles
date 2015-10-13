@@ -1,17 +1,24 @@
-# use vim as the visual editor
-export VISUAL=vim
+# You may need to manually set your language environment
+export LANG=en_GB.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export VISUAL='vim'
+else
+  export VISUAL='mvim'
+fi
 export EDITOR=$VISUAL
 
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/id_rsa"
+
 # ensure dotfiles bin directory is loaded first
-export PATH="$HOME/.bin:/usr/local/sbin:$PATH"
+export PATH="$PATH:$HOME/.bin"
 
-# load rbenv if available
-if which rbenv &>/dev/null ; then
-  eval "$(rbenv init - --no-rehash)"
-fi
-
-# mkdir .git/safe in the root of repositories you trust
-export PATH=".git/safe/../../bin:$PATH"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Local config
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
