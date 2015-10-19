@@ -18,7 +18,5 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 # ensure dotfiles bin directory is loaded first
 export PATH="$PATH:$HOME/.bin"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # Local config
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
