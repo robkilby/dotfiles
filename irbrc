@@ -1,2 +1,3 @@
-# Local config
-[[ -f ~/.irbrc.local ]] && source ~/.irbrc.local
+require 'awesome_print'
+
+AwesomePrint.irb!
