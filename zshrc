@@ -58,5 +58,3 @@ plugins=(git git-extras rvm rails ruby brew brew-cask bundler capistrano sublime
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

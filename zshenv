@@ -1,3 +1,5 @@
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 # You may need to manually set your language environment
 export LANG=en_GB.UTF-8
 
