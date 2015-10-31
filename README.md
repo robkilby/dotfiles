@@ -22,29 +22,22 @@ Clone onto your Dropbox:
 
 Install the dotfiles:
 
-    ./Dropbox/dotfiles/setup
+    env RCRC=$HOME/dotfiles/rcrc rcup
+
+After the initial installation, you can run `rcup` without the one-time variable
+`RCRC` being set (`rcup` will symlink the repo's `rcrc` to `~/.rcrc` for future
+runs of `rcup`). [See
+example](https://github.com/robkilby/dotfiles/blob/master/rcrc).
+
+This command will create symlinks for config files in your home directory.
+Setting the `RCRC` environment variable tells `rcup` to use standard
+configuration options:
 
 Update
 ------
 
-You can safely run `dotfiles/update` multiple times to update:
-
-    ./dotfiles/update
-
 You should run `rcup` after pulling a new version of the repository to symlink
 any new files in the repository.
-
-#### Note for OS X El Capitan Users
-
-OS X El Capitan (10.11) calls `path_helper` from `/etc/zprofile`, which gets
-sourced *after* `.zshenv`, and will reorder your path in such a way that
-installed software such as Ruby, rbenv, Homebrew, etc. may not work correctly.
-You can rename the file to prevent it from editing your environment path after
-changes made in `.zshenv`:
-
-```shell
-% sudo mv /etc/{zprofile,zshenv}
-```
 
 Make your own customisations
 ----------------------------
@@ -62,7 +55,6 @@ detected and symlinked.
 * `~/Dropbox/dotfiles-local/tmux.conf.local`
 * `~/Dropbox/dotfiles-local/vimrc.local`
 * `~/Dropbox/dotfiles-local/vimrc.bundles.local`
-* `~/Dropbox/dotfiles-local/zshenv.local`
 * `~/Dropbox/dotfiles-local/zshrc.local`
 * `~/Dropbox/.zsh/configs/*`
 
@@ -88,20 +80,15 @@ Your `~/Dropbox/dotfiles-local/.vimrc.local` might look like this:
     highlight NonText guibg=#060606
     highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
-Your `~/Dropbox/dotfiles-local/zshenv.local` might look like this:
-
-    # load pyenv if available
-    if command -v pyenv &>/dev/null ; then
-      eval "$(pyenv init -)"
-    fi
-
 To extend your `git` hooks, create executable scripts in
 `~/Dropbox/dotfiles-local/git_template.local/hooks/*` files.
 
 Your `~/Dropbox/dotfiles-local/zshrc.local` might look like this:
 
-    # recommended by brew doctor
-    export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+    # load pyenv if available
+    if which pyenv &>/dev/null ; then
+      eval "$(pyenv init -)"
+    fi
 
 Your `~/Dropbox/dotfiles-local/vimrc.bundles.local` might look like this:
 
