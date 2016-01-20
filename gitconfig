@@ -16,8 +16,6 @@
 	excludesfile = $HOME/.gitignore_global
 [merge]
   ff = only
-[commit]
-  template = ~/.gitmessage
 [fetch]
   prune = true
 [rebase]

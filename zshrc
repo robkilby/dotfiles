@@ -1,7 +1,5 @@
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/dotfiles/oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -11,6 +9,10 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -56,11 +58,10 @@ export LANG=en_GB.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export VISUAL='vim'
+  export EDITOR='vim'
 else
-  export VISUAL='mvim'
+  export EDITOR='mvim'
 fi
-export EDITOR=$VISUAL
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -68,52 +69,11 @@ export EDITOR=$VISUAL
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
-# ensure dotfiles bin directory is loaded first
-export PATH="$PATH:$HOME/.bin"
-
-# aliases
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
-
-# load custom executable functions
-for function in ~/.zsh/functions/*; do
-  source $function
-done
-
-# extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
-# these are loaded first, second, and third, respectively.
-_load_settings() {
-  _dir="$1"
-  if [ -d "$_dir" ]; then
-    if [ -d "$_dir/pre" ]; then
-      for config in "$_dir"/pre/**/*(N-.); do
-        . $config
-      done
-    fi
-
-    for config in "$_dir"/**/*(N-.); do
-      case "$config" in
-        "$_dir"/pre/*)
-          :
-          ;;
-        "$_dir"/post/*)
-          :
-          ;;
-        *)
-          if [ -f $config ]; then
-            . $config
-          fi
-          ;;
-      esac
-    done
-
-    if [ -d "$_dir/post" ]; then
-      for config in "$_dir"/post/**/*(N-.); do
-        . $config
-      done
-    fi
-  fi
-}
-_load_settings "$HOME/.zsh/configs"
 
 # Local config
 [[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
@@ -121,3 +81,5 @@ _load_settings "$HOME/.zsh/configs"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
