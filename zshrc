@@ -49,7 +49,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras rvm rails ruby brew brew-cask bundler capistrano sublime)
+plugins=(brew brew-cask bundler capistrano gem git git-flow git-hubflow git-prompt github heroku postgres rails rake rbenv redis-cli ruby tmux)
 
 # User configuration
 
@@ -81,5 +81,3 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
