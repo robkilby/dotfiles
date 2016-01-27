@@ -75,9 +75,9 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 # For a full list of active aliases, run `alias`.
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 
-# Local config
-[[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+# Local config
+[[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
