@@ -50,7 +50,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(brew brew-cask bundler capistrano gem git git-flow git-hubflow github heroku postgres rbenv redis-cli tmux)
-plugins=(rbenv)
+plugins=(bundler git rbenv)
 
 # User configuration
 
