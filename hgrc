@@ -1,0 +1,2 @@
+[extensions]
+prompt = ~/.src/prompt.py
