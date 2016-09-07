@@ -13,7 +13,7 @@
   pf = push --force-with-lease
   st = status
 [core]
-	excludesfile = $HOME/.gitignore_global
+  excludesfile = $HOME/.gitignore_global
 [merge]
   ff = only
 [fetch]
@@ -22,9 +22,6 @@
   autosquash = true
 [include]
   path = ~/.gitconfig.local
-[user]
-	name = Rob Kilby
-	email = rob.kilby@smithelectric.com
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
