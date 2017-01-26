@@ -77,3 +77,5 @@ source $ZSH/oh-my-zsh.sh
 
 # Local config
 [[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

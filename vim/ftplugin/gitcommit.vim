@@ -1,3 +1,5 @@
-" Automatically wrap at 72 characters and spell check commit messages
+
+" plugins/20-settings/files -------------------
+
 setlocal textwidth=72
 setlocal spell
