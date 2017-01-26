@@ -49,7 +49,7 @@ ZSH_CUSTOM=~/.custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(battery git mecurial osx ruby rails bundler brew rake cap rbenv)
+plugins=(battery git git-prompt git-remote-branch github osx ruby rails bundler brew rake cap rbenv)
 
 # User configuration
 
@@ -57,11 +57,7 @@ plugins=(battery git mecurial osx ruby rails bundler brew rake cap rbenv)
 export LANG=en_GB.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
