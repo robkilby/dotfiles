@@ -260,3 +260,17 @@ let g:indentLine_conceallevel = &conceallevel
 " plugins/70-languages/plugins/json/plugins/noconceal/files -------------------
 
 let g:vim_json_syntax_conceal = 0
+
+" Syntax overrides
+
+au BufNewFile,BufRead *.ui set filetype=ruby
+au BufNewFile,BufRead *.scss set filetype=css
+
+" Function key remapping
+
+map <F12> :call ToggleMouseMode()<CR>
+map <F2> :NERDTreeTabsToggle<CR>
+map <F3> :%s/\s\+$//e<CR>
+map <F4> <Esc>Orequire 'pry'; binding.pry
+map <F5> <Esc>:set cursorline! cursorcolumn!<CR>
+map <F6> <Esc>:SyntasticCheck<CR>
