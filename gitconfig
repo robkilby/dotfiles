@@ -1,9 +1,3 @@
-[init]
-  templatedir = ~/.git_template
-[push]
-  default = current
-[color]
-  ui = auto
 [alias]
   aa = add --all
   ap = add --patch
@@ -12,40 +6,42 @@
   co = checkout
   pf = push --force-with-lease
   st = status
-[core]
-  excludesfile = ~/.gitignore_global
-[merge]
-  ff = only
-[fetch]
-  prune = true
-[rebase]
-  autosquash = true
-[include]
-  path = ~/.gitconfig.local
-[filter "media"]
-  clean = git media clean %f
-  smudge = git media smudge %f
-[filter "hawser"]
-  clean = git hawser clean %f
-  smudge = git hawser smudge %f
-  required = true
-[filter "lfs"]
-  clean = git lfs clean %f
-  smudge = git lfs smudge %f
-  required = true
+  fat = fetch --all --tags --prune
+  undo = reset --soft HEAD^
+  sa = stash save --include-untracked
+  glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+[color]
+  ui = auto
 [commit]
   gpgsign = true
+[core]
+  excludesfile = ~/.gitignore_global
 [diff]
   tool = Kaleidoscope
 [difftool]
   prompt = false
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[include]
+  path = ~/.gitconfig.local
+[init]
+  templatedir = ~/.git_template
 [merge]
-  tool = Kaleidoscope
+  conflictstyle = diff3
+  ff = only
   keepBackup = false
+  tool = Kaleidoscope
 [mergetool]
   prompt = false
 [mergetool "Kaleidoscope"]
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustExitCode = true
+[push]
+  default = simple
+  followTags = true
+[rebase]
+  autosquash = true
+[status]
+  showUntrackedFiles = all
+[transfer]
+  fsckobjects = true
