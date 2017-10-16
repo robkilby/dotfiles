@@ -1,0 +1,6 @@
+git co master
+git fat
+git bdf $1
+git co origin/$1
+git co -b $1
+git branch --set-upstream-to=origin/$1 $1
